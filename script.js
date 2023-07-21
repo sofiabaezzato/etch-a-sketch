@@ -25,10 +25,7 @@ sizeSlider.addEventListener("input", (e) => {
     sizeLabel.innerHTML = "Canvas size: " + e.target.value + " x " + e.target.value;
 })
 
-modeSelector.addEventListener("click", () => {
-    mode = modeSelector.options[modeSelector.selectedIndex].value;
-})
-
+modeSelector.onclick = () => updateMode();
 clearBtn.onclick = () => reloadGrid();
 
 function draw(size) {
@@ -43,6 +40,10 @@ function draw(size) {
         gridElement.addEventListener('pointermove', changeColor)
         grid.appendChild(gridElement);
     }
+}
+
+function updateMode() {
+    mode = modeSelector.options[modeSelector.selectedIndex].value; 
 }
 
 function clear() {
