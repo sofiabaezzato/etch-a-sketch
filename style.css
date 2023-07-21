@@ -175,6 +175,7 @@ select:hover {
     appearance: none;
     background-color: transparent;
     cursor: pointer;
+    touch-action: none;
 }
 
 input[type="range"]::-webkit-slider-runnable-track {

@@ -40,6 +40,7 @@ function draw(size) {
         gridElement.classList.add('grid-element');
         gridElement.addEventListener('pointerover', changeColor)
         gridElement.addEventListener('pointerdown', changeColor)
+        gridElement.addEventListener('pointermove', changeColor)
         grid.appendChild(gridElement);
     }
 }
@@ -54,7 +55,7 @@ function reloadGrid() {
 }
 
 function changeColor(e) {
-    if (e.pointerType === "mouse" || e.pointerType === "pen" && !pointerDown) return
+    if (!pointerDown) return
     if (mode === 'classic') {
         e.target.style.backgroundColor = 'var(--text-color)';
     }
