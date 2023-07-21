@@ -4,9 +4,9 @@ const DEFAULT_MODE = 'classic';
 let size = DEFAULT_SIZE;
 let mode = DEFAULT_MODE;
 
-let mouseDown = false;
-document.body.onmousedown = () => (mouseDown = true);
-document.body.onmouseup = () => (mouseDown = false);
+let pointerDown = false;
+document.body.onpointerdown = () => (pointerDown = true);
+document.body.onpointerup = () => (pointerDown = false);
 
 const sizeLabel = document.getElementById('sizeLabel')
 const sizeSlider = document.getElementById('slider');
@@ -38,8 +38,8 @@ function draw(size) {
     for (let i = 0; i < size * size; i++) {
         const gridElement = document.createElement('div');
         gridElement.classList.add('grid-element');
-        gridElement.addEventListener('mouseover', changeColor)
-        gridElement.addEventListener('mousedown', changeColor)
+        gridElement.addEventListener('pointerover', changeColor)
+        gridElement.addEventListener('pointerdown', changeColor)
         grid.appendChild(gridElement);
     }
 }
@@ -54,7 +54,7 @@ function reloadGrid() {
 }
 
 function changeColor(e) {
-    if (e.type === 'mouseover' && !mouseDown) return
+    if (e.pointerType === "mouse" || e.pointerType === "pen" && !pointerDown) return
     if (mode === 'classic') {
         e.target.style.backgroundColor = 'var(--text-color)';
     }

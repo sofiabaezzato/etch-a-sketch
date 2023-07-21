@@ -118,6 +118,7 @@ img {
     background-color: white;
     cursor: default;
     box-shadow: rgba(0, 0, 0, 0.2) 0 3px 8px;
+    touch-action: none;
 }
 
 .grid-element {
