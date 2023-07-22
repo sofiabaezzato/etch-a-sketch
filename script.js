@@ -40,15 +40,11 @@ function draw(size) {
     for (let i = 0; i < size * size; i++) {
         const gridElement = document.createElement('div');
         gridElement.classList.add('grid-element');
-        /* gridElement.addEventListener('pointermove', changeColor) */
+        gridElement.addEventListener('pointermove', changeColor)
         gridElement.addEventListener('pointerdown', changeColor)
         grid.appendChild(gridElement);
     }
 }
-
-/* function updateMode() {
-    mode = modeSelector.options[modeSelector.selectedIndex].value;
-} */
 
 function clear() {
     grid.innerHTML = "";
@@ -91,3 +87,5 @@ grid.addEventListener('pointermove', (e) => {
         changeColor(e);
     }
 });
+
+
